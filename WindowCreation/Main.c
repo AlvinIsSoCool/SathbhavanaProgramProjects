@@ -10,7 +10,7 @@ INT WINAPI WinMain(_In_ HINSTANCE hInstance, _In_ HINSTANCE hPrevInstance, _In_ 
 
 	RegisterClass(&windowClass);
 
-	HWND hWnd = CreateWindowExA(0, "TestWindowProject", "TestWindow", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, NULL, NULL, hInstance, NULL);
+	HWND hWnd = CreateWindowEx(0, "TestWindowProject", "TestWindow", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, NULL, NULL, hInstance, NULL);
 	if (hWnd == NULL) {
 		MessageBox(NULL, "Window Couldn't Be Created Successfully!", "WindowProgram", MB_OK);
 		ExitProcess(1);
@@ -22,8 +22,9 @@ INT WINAPI WinMain(_In_ HINSTANCE hInstance, _In_ HINSTANCE hPrevInstance, _In_ 
 	GetWindowRect(hWnd, &rect);
 	INT width = rect.right - rect.left;
 	INT height = rect.bottom - rect.top;
-	HWND hWndButton = CreateWindowEx(0, "BUTTON", "Button", WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_PUSHBUTTON, width / 2 - (70 / 2), height / 2 - (40 / 2), 70, 40, hWnd, NULL, (HINSTANCE)GetWindowLongPtr(hWnd, GWLP_HINSTANCE), NULL);
-	
+	//HWND hWndButton = CreateWindowEx(0, "BUTTON", "Button", WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_PUSHBUTTON, width / 2 - (70 / 2), height / 2 - (40 / 2), 70, 40, hWnd, NULL, (HINSTANCE)GetWindowLongPtr(hWnd, GWLP_HINSTANCE), NULL);
+	HWND hWndButton = CreateWindowEx(0, "BUTTON", "Button", WS_VISIBLE | WS_CHILD | BS_PUSHBUTTON, 235, 234, 70, 40, hWnd, NULL, (HINSTANCE)GetWindowLongPtr(hWnd, GWLP_HINSTANCE), NULL);
+
 	MSG msg;
 	ZeroMemory(&msg, sizeof(msg));
 

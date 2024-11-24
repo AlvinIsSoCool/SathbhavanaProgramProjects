@@ -2,13 +2,13 @@
 
 LRESULT CALLBACK WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 	switch (uMsg) {
-	case WM_SIZE:
+	/*case WM_SIZE:
 		INT width = LOWORD(lParam) / 2 - (70 / 2);
 		INT height = HIWORD(lParam) / 2 - (40 / 2);
 
 		HWND hWndChild = GetWindow(hWnd, GW_CHILD);
 		SetWindowPos(hWndChild, NULL, width, height, 0, 0, SWP_NOSIZE | SWP_NOZORDER);
-		return DefWindowProc(hWnd, uMsg, wParam, lParam);
+		return DefWindowProc(hWnd, uMsg, wParam, lParam); */
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		return 0;
